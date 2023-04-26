@@ -1,0 +1,12 @@
+<launch>
+    <node pkg="path_follower" type="path_follower_node" name="path_follower" output="screen">
+        <!-- set a private parameter for the node -->
+        <param name="targetMode" type="int" value="1"/>
+        <param name="targetTopic" type="string" value="/pos_command"/>
+        <param name="targetListUrl" type="string" value="$(find path_follower)\config\pos.yaml"/>
+        <param name="odomHasVel" type="bool" value="0"/>
+        <param name="odomTopic" type="string" value="/base_odom"/>
+        <param name="velTopic" type="string" value="/cmd_vel"/>
+    </node>
+
+</launch>
