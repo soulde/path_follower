@@ -10,7 +10,7 @@ project(path_follower)
 find_package(catkin REQUIRED COMPONENTS
         nav_msgs
         roscpp
-        quadrotor_msgs
+        control_msgs
         geometry_msgs
         )
 find_package(Eigen3)

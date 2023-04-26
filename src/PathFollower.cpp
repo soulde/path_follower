@@ -14,7 +14,7 @@ PathFollower::PathFollower(ros::NodeHandle &handle) : pubThread(&PathFollower::l
     handle.getParam(ns + "targetMode", targetMode);
     if (targetMode == DYNAMIC) {
         handle.getParam(ns + "targetTopic", targetTopic);
-        targetSub = handle.subscribe<quadrotor_msgs::PositionCommand>(targetTopic, 1,
+        targetSub = handle.subscribe<control_msgs::PositionCommand>(targetTopic, 1,
                                                                       [this](auto &&PH1) {
                                                                           targetCallback(
                                                                                   std::forward<decltype(PH1)>(PH1));
@@ -64,7 +64,7 @@ void PathFollower::odomCallback(const nav_msgs::Odometry::ConstPtr &odomMsg) {
 
 }
 
-void PathFollower::targetCallback(const quadrotor_msgs::PositionCommand::ConstPtr &cmdMsg) {
+void PathFollower::targetCallback(const control_msgs::PositionCommand::ConstPtr &cmdMsg) {
     //use k if necessary
 //    kx_ = Eigen::Vector3d(cmdMsg->kx[0], cmdMsg->kx[1], cmdMsg->kx[2]);
 //    kv_ = Eigen::Vector3d(cmdMsg->kv[0], cmdMsg->kv[1], cmdMsg->kv[2]);

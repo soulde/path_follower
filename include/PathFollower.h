@@ -8,7 +8,7 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
-#include <quadrotor_msgs/PositionCommand.h>
+#include <control_msgs/PositionCommand.h>
 #include <Eigen/Eigen>
 #include <queue>
 #include <utility>
@@ -66,7 +66,7 @@ private:
 
     void odomCallback(const nav_msgs::Odometry::ConstPtr &odomMsg);
 
-    void targetCallback(const quadrotor_msgs::PositionCommand::ConstPtr &cmdMsg);
+    void targetCallback(const control_msgs::PositionCommand::ConstPtr &cmdMsg);
 
     void calculateVel();
 
